@@ -1,0 +1,107 @@
+<div class="container">
+
+  <div class="col-12">
+    <form #remetenteForm="ngForm" (ngSubmit)="novoRemetente(remetenteForm)">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"
+                   ngModel required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" name="cpf" class="form-control" id="cpf" placeholder="CPF"
+                   ngModel maxlength="14" mask='000.000.000-00' required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="phone" name="telefone" maxlength="15" class="form-control" id="telefone" placeholder="Telefone"
+                   ngModel mask='(00) 00000-0000' required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="E-mail"
+                   ngModel required>
+          </div>
+        </div>
+      </div>
+
+      <h2>Endereço</h2>
+
+      <div class="row">
+        <div class="col-2">
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" class="form-control" id="cep" placeholder="CEP"
+                   ngModel (input)="buscarPorCep(remetenteForm)" maxlength="9" mask='00000-000' [dropSpecialCharacters]="false" required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="Logradouro"
+                   [(ngModel)]="this.endereco.logradouro" required>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="text" name="numero" class="form-control" id="numero" placeholder="Nº"
+                   [(ngModel)]="this.endereco.numero" maxlength="6" required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="email" name="complemento" class="form-control" id="complemento" placeholder="Complemento"
+                   ngModel>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="texto" name="bairro" class="form-control" id="bairro" placeholder="Bairro"
+                   [(ngModel)]="this.endereco.bairro" required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="localidade">Localidade</label>
+            <input type="text" name="localidade" class="form-control" id="localidade" placeholder="Localidade"
+                   [(ngModel)]="this.endereco.localidade" required>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="uf">Estado</label>
+            <input type="text" name="uf" class="form-control" id="uf" placeholder="Estado"
+                   [(ngModel)]="this.endereco.uf" maxlength="2" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <button (click)="voltar()" class="btn btn-secondary">
+            Voltar
+          </button>
+          <button type="submit" class="btn btn-primary float-right">
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

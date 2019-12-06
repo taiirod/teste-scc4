@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  background-color: ghostwhite;
+  color: black;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+  color: white;
+  background-color: cornflowerblue;
+  border-color: cornflowerblue;
+}
+
+.card {
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+
+.btn-primary,
+.btn-secondary {
+  margin-bottom: 2%;
+}

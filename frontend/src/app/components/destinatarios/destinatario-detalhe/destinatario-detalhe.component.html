@@ -1,0 +1,216 @@
+<div class="container">
+
+  <div class="row mb-2">
+    <!-- &lt;!&ndash; MODAL DE EDITAR &ndash;&gt;
+     <ng-template #editarModal let-modal>
+       <div class="modal-header">
+         <h4 class="modal-title">
+           Editar dados de {{this.usuario.nomeCompleto}}
+         </h4>
+       </div>
+       <div class="modal-body">
+         <form #editarForm="ngForm" (ngSubmit)="editar(editarForm)">
+           <div class="row">
+             <div class="col-6">
+               <div class="form-group">
+                 <label for="telefone">Telefone</label>
+                 <input type="phone" name="telefone" maxlength="15" class="form-control" id="telefone"
+                        placeholder="Telefone"
+                        [(ngModel)]="this.usuario.telefone" mask='(00) 00000-0000'>
+               </div>
+             </div>
+             <div class="col-6">
+               <div class="form-group">
+                 <label for="email">E-mail</label>
+                 <input type="email" name="email" class="form-control" id="email" placeholder="E-mail"
+                        [(ngModel)]="this.usuario.email">
+               </div>
+             </div>
+           </div>
+
+           <h4>Endereço</h4>
+
+           <div class="row">
+             <div class="col-2">
+               <div class="form-group">
+                 <label for="cep">CEP</label>
+                 <input type="text" name="cep" class="form-control" id="cep" placeholder="CEP"
+                        [(ngModel)]="this.usuario.endereco.cep" (input)="buscarPorCep(editarForm)" maxlength="9"
+                        mask='00000-000'>
+               </div>
+             </div>
+             <div class="col-4">
+               <div class="form-group">
+                 <label for="logradouro">Logradouro</label>
+                 <input type="text" name="logradouro" class="form-control" id="logradouro" placeholder="Logradouro"
+                        [(ngModel)]="this.usuario.endereco.logradouro">
+               </div>
+             </div>
+             <div class="col-2">
+               <div class="form-group">
+                 <label for="numero">Número</label>
+                 <input type="number" name="numero" class="form-control" id="numero" placeholder="Nº"
+                        [(ngModel)]="this.usuario.endereco.numero" maxlength="6">
+               </div>
+             </div>
+             <div class="col-4">
+               <div class="form-group">
+                 <label for="complemento">Complemento</label>
+                 <input type="email" name="complemento" class="form-control" id="complemento" placeholder="Complemento"
+                        [(ngModel)]="this.usuario.endereco.complemento">
+               </div>
+             </div>
+           </div>
+
+           <div class="row">
+             <div class="col-4">
+               <div class="form-group">
+                 <label for="bairro">Bairro</label>
+                 <input type="texto" name="bairro" class="form-control" id="bairro" placeholder="Bairro"
+                        [(ngModel)]="this.usuario.endereco.bairro">
+               </div>
+             </div>
+             <div class="col-4">
+               <div class="form-group">
+                 <label for="localidade">Localidade</label>
+                 <input type="text" name="localidade" class="form-control" id="localidade" placeholder="Localidade"
+                        [(ngModel)]="this.usuario.endereco.localidade">
+               </div>
+             </div>
+             <div class="col-4">
+               <div class="form-group">
+                 <label for="uf">Estado</label>
+                 <input type="text" name="uf" class="form-control" id="uf" placeholder="Estado"
+                        [(ngModel)]="this.usuario.endereco.uf" maxlength="2">
+               </div>
+             </div>
+           </div>
+
+           <div *ngIf="this.erro" class="alert alert-danger" role="alert">
+             Saldo insuficiente.
+           </div>
+
+           <button type="submit" class="btn btn-primary mb-2 mr-2"> CONFIRMAR</button>
+         </form>
+       </div>
+     </ng-template>-->
+  </div>
+
+  <div class="card">
+    <div class="col-12">
+      <div class="card-body">
+        <h5 class="card-title">
+          Informações do destinatário
+        </h5>
+        <div class="row">
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Nome
+            </h6>
+            <span>
+              {{this.destinatario.nome}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              CPF
+            </h6>
+            <span>
+              {{this.destinatario.cpf | mask: '000.000.000-00'}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Telefone
+            </h6>
+            <span>
+              {{this.destinatario.telefone | mask: '(00) 00000-0000' }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              E-mail
+            </h6>
+            <span>
+              {{this.destinatario.email}}
+            </span>
+          </div>
+        </div>
+        <h5 class="card-title mt-5">
+          Endereço do usuário
+        </h5>
+        <div class="row">
+          <div class="col-2">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              CEP
+            </h6>
+            <span>
+              {{this.destinatario.endereco.cep | mask: '00000-000'}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Logradouro
+            </h6>
+            <span>
+              {{this.destinatario.endereco.logradouro}}
+            </span>
+          </div>
+          <div class="col-2">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Número
+            </h6>
+            <span>
+              {{this.destinatario.endereco.numero}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Complemento
+            </h6>
+            <span>
+              {{this.destinatario.endereco.complemento}}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Bairro
+            </h6>
+            <span>
+              {{this.destinatario.endereco.bairro}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Localidade
+            </h6>
+            <span>
+              {{this.destinatario.endereco.localidade}}
+            </span>
+          </div>
+          <div class="col-4">
+            <h6 class="card-subtitle  mt-2 text-muted">
+              Estado
+            </h6>
+            <span>
+              {{this.destinatario.endereco.uf}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button (click)="voltar()" class="btn btn-secondary">
+        Voltar
+      </button>
+    </div>
+  </div>
+
+
+</div>
